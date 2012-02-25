@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = BakerServer::VERSION
   s.authors     = ["Ajay Kumar Guthikonda"]
   s.email       = ["aroopchandra@gmail.com"]
-  s.homepage    = "TODO"
+  s.homepage    = "http://aroop.github.com/"
   s.summary     = "BakerServer is a open source server side component used in Baker project"
-  s.description = "TODO: Description of BakerServer."
+  s.description = "Description of BakerServer."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
