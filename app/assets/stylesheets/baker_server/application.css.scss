@@ -1,0 +1,25 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+@import "jquery.tablesorter";
+
+body{
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  @media (min-width: 769px) {
+    padding-top: 60px;
+  }
+}
+
+//p, ul, ol, dl {
+//  font-family: "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+//}
+//
+//.page-header {
+//  background-color: whiteSmoke;
+//  padding: 20px 20px 10px;
+//  margin: -18px 0px 20px 0px;
+//}
+//
+//.content p, .modal-body p, .content ul, .modal-body ul, .content ol, .modal-body ol {
+//  color: #454545;
+//  font-size: 15px;
+//}

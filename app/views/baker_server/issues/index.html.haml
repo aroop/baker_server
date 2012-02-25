@@ -1,0 +1,48 @@
+.well
+  %h1 Listing issues
+
+%table#listingsTable.table.table-bordered.table-striped.tablesorter
+  %thead
+    %tr
+      %th{width: "110px"} Cover Art
+      %th Issue Id
+      %th Summary
+      %th Published Date
+      %th End Date
+      %th Options
+
+  %tbody
+    - @issues.each do |issue|
+      %tr
+        %td= issue.cover_art.present? ? image_tag(issue.cover_art.thumb("100x100").url) : ""
+        %td= issue.issue_id
+        %td= issue.summary
+        %td= issue.published_date
+        %td= issue.end_date
+        %td
+          = link_to 'Edit', edit_issue_path(issue)
+          |
+          = link_to 'Destroy', issue, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Issue', new_issue_path, class: 'btn btn-primary'
+%hr
+.alert.alert-info
+  %i.icon-info-sign
+  Atom feed URL: #{link_to issues_url(format: 'atom'), issues_path(format: 'atom')}
+
+:javascript
+  jQuery(function($) {
+    $("#listingsTable").tablesorter({
+      sortList: [[3,1],[1,0]],
+      headers: {
+        0: {
+          sorter: false
+        },
+        5: {
+          sorter: false
+        }
+      }
+    });
+  });

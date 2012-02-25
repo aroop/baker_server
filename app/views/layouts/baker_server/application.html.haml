@@ -1,0 +1,11 @@
+!!! 5
+%html
+  = render partial: "layouts/baker_server/head"
+  %body
+    = render partial: "layouts/baker_server/header"
+    .container
+      - flash.each do |type, message|
+        .alert.fade.in{:class => bootstrap_flash_class(type) }
+          %a.close{:href => "#", "data-dismiss" => "alert" } ×
+          = message
+      = yield
