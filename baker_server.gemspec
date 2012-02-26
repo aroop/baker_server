@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 3.2.1'
   s.add_dependency 'jquery-rails'
+  s.add_dependency 'jbuilder', '~> 0.3.2'
   s.add_dependency 'sass-rails', '~> 3.1'
   s.add_dependency 'simple-navigation', '~> 3.6.0'
   s.add_dependency 'haml-rails'
