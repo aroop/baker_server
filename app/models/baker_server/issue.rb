@@ -7,6 +7,7 @@ module BakerServer
     validate :published_date_order
 
     image_accessor :cover_art
+    file_accessor :content
 
     protected
     def published_date_order

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224010247) do
+ActiveRecord::Schema.define(:version => 20120225232120) do
 
   create_table "baker_server_issues", :force => true do |t|
     t.date     "published_date"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20120224010247) do
     t.string   "issue_id"
     t.text     "summary"
     t.string   "cover_art_uid"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "paid",           :default => true
+    t.string   "content_uid"
   end
 
 end

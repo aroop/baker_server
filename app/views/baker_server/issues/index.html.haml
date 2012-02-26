@@ -6,6 +6,7 @@
     %tr
       %th{width: "110px"} Cover Art
       %th Issue Id
+      %th Paid Issue
       %th Summary
       %th Published Date
       %th End Date
@@ -16,6 +17,7 @@
       %tr
         %td= issue.cover_art.present? ? image_tag(issue.cover_art.thumb("100x100").url) : ""
         %td= issue.issue_id
+        %td= issue.paid ? "Yes" : "No"
         %td= issue.summary
         %td= issue.published_date
         %td= issue.end_date
@@ -35,7 +37,7 @@
 :javascript
   jQuery(function($) {
     $("#listingsTable").tablesorter({
-      sortList: [[3,1],[1,0]],
+      sortList: [[4,1],[1,0]],
       headers: {
         0: {
           sorter: false

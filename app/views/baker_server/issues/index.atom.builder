@@ -9,6 +9,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom", 'xmlns:news' => 'http://itune
       xml.updated issue.updated_at.xmlschema
       xml.published issue.published_date.xmlschema
       xml.summary issue.summary
+      xml.paid issue.paid
       xml.news :end_date do
         if issue.end_date.present?
           xml.text! issue.end_date.xmlschema
