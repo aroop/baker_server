@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225232120) do
+ActiveRecord::Schema.define(:version => 20120304055159) do
 
   create_table "baker_server_issues", :force => true do |t|
     t.date     "published_date"
@@ -23,6 +23,26 @@ ActiveRecord::Schema.define(:version => 20120225232120) do
     t.datetime "updated_at",                       :null => false
     t.boolean  "paid",           :default => true
     t.string   "content_uid"
+  end
+
+  create_table "baker_server_products", :force => true do |t|
+    t.string   "product_id"
+    t.string   "content_uid"
+    t.string   "name"
+    t.string   "icon_uid"
+    t.string   "preview_uid"
+    t.text     "description"
+    t.boolean  "paid"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "baker_server_subscriptions", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "expiration_message"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
 end

@@ -1,0 +1,23 @@
+.well
+  %h1 Listing subscriptions
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Expiration message
+      %th Actions
+
+  %tbody
+    - @subscriptions.each do |subscription|
+      %tr
+        %td= subscription.name
+        %td= subscription.description
+        %td= subscription.expiration_message
+        %td
+          = link_to 'Show', subscription, :class => 'btn btn-mini'
+          = link_to 'Edit', edit_subscription_path(subscription), :class => 'btn btn-mini'
+          = link_to 'Destroy', subscription, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+= link_to 'New Subscription', new_subscription_path, :class => 'btn btn-primary'

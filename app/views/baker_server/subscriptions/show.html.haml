@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @subscription.name
+%p
+  %b Description:
+  = @subscription.description
+%p
+  %b Expiration message:
+  = @subscription.expiration_message
+
+.form-actions
+  = link_to 'Edit', edit_subscription_path(@subscription), :class => 'btn'
+
+  = link_to 'Back', subscriptions_path, :class => 'btn'

@@ -1,0 +1,28 @@
+%p#notice= notice
+
+%p
+  %b Product:
+  = @product.product_id
+%p
+  %b Content uid:
+  = @product.content_uid
+%p
+  %b Name:
+  = @product.name
+%p
+  %b Icon uid:
+  = @product.icon_uid
+%p
+  %b Preview uid:
+  = @product.preview_uid
+%p
+  %b Description:
+  = @product.description
+%p
+  %b Paid:
+  = @product.paid
+
+.form-actions
+  = link_to 'Edit', edit_product_path(@product), :class => 'btn'
+
+  = link_to 'Back', products_path, :class => 'btn'

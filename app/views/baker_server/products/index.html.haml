@@ -1,0 +1,31 @@
+.well
+  %h1 Listing products
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Product
+      %th Content uid
+      %th Name
+      %th Icon uid
+      %th Preview uid
+      %th Description
+      %th Paid
+      %th Actions
+
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= product.product_id
+        %td= product.content_uid
+        %td= product.name
+        %td= product.icon_uid
+        %td= product.preview_uid
+        %td= product.description
+        %td= product.paid
+        %td
+          = link_to 'Show', product, :class => 'btn btn-mini'
+          = link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini'
+          = link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+= link_to 'New Product', new_product_path, :class => 'btn btn-primary'
