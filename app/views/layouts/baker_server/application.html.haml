@@ -3,7 +3,7 @@
   = render partial: "layouts/baker_server/head"
   %body
     = render partial: "layouts/baker_server/header"
-    .container
+    #wrapper.container
       - flash.each do |type, message|
         .alert.fade.in{:class => bootstrap_flash_class(type) }
           %a.close{:href => "#", "data-dismiss" => "alert" } ×

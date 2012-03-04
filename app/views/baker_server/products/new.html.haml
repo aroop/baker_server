@@ -1,6 +1,6 @@
 .well
-  %h1 New product
+  %h1 New #{resource_class.to_s.demodulize.titleize}
 
 = render 'form'
 
-= link_to 'Back', products_path
+-#= link_to 'Back', collection_path(resource)

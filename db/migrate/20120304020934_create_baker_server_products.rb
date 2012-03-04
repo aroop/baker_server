@@ -6,8 +6,11 @@ class CreateBakerServerProducts < ActiveRecord::Migration
       t.string :name
       t.string :icon_uid
       t.string :preview_uid
+      t.string :type
       t.text :description
       t.boolean :paid
+      t.references :subscription
+      t.references :subscription_duration
 
       t.timestamps
     end

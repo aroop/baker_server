@@ -1,31 +1,53 @@
 .well
   %h1 Listing products
 
-%table.table.table-bordered.table-striped
+%table#productsTable.table.table-bordered.table-striped.tablesorter
   %thead
     %tr
       %th Product
-      %th Content uid
-      %th Name
-      %th Icon uid
-      %th Preview uid
-      %th Description
-      %th Paid
-      %th Actions
+      %th Type
+      %th{width: "110px"} Icon
+      %th{width: "110px"} Preview
+      %th{width: "200px"}  Actions
 
   %tbody
-    - @products.each do |product|
+    - collection.each do |product|
       %tr
         %td= product.product_id
-        %td= product.content_uid
-        %td= product.name
-        %td= product.icon_uid
-        %td= product.preview_uid
-        %td= product.description
-        %td= product.paid
+        %td= product.class.to_s.demodulize.titleize
+        %td= render_image(product.icon)
+        %td= render_image(product.preview)
         %td
-          = link_to 'Show', product, :class => 'btn btn-mini'
-          = link_to 'Edit', edit_product_path(product), :class => 'btn btn-mini'
-          = link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+          = link_to 'Show', polymorphic_path([parent, product]), :class => 'btn btn-mini'
+          = link_to 'Edit', edit_polymorphic_path([parent, product]), :class => 'btn btn-mini'
+          = link_to 'Destroy', polymorphic_path([parent, product]), :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
-= link_to 'New Product', new_product_path, :class => 'btn btn-primary'
+.btn-group
+  %a.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown"}
+    Create Product
+    %span.caret
+  %ul.dropdown-menu
+    = link_to 'New Auto Renewing Subscription', new_subscription_auto_renewal_subscription_path(parent)
+    = link_to 'New Free Subscription', new_subscription_free_subscription_path(parent)
+    = link_to 'New Non Renewing Subscription', new_subscription_non_renewing_subscription_path(parent)
+
+:javascript
+  jQuery(function($) {
+    $("#productsTable").tablesorter({
+      sortList: [[1,0]],
+      headers: {
+        0: {
+          sorter: false
+        },
+        2: {
+          sorter: false
+        },
+        3: {
+          sorter: false
+        },
+        4: {
+          sorter: false
+        }
+      }
+    });
+  });

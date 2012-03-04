@@ -1,8 +1,8 @@
 .well
-  %h1 Editing product
+  %h1 Editing #{resource_class.to_s.demodulize.titleize}
 
 = render 'form'
 
-= link_to 'Show', @product
-\|
-= link_to 'Back', products_path
+= link_to 'Show', polymorphic_path([parent, resource])
+-#\|
+-#= link_to 'Back', products_path

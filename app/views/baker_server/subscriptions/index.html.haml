@@ -1,23 +1,39 @@
 .well
   %h1 Listing subscriptions
 
-%table.table.table-bordered.table-striped
+%table#subscriptionsTable.table.table-bordered.table-striped.tablesorter
   %thead
     %tr
       %th Name
       %th Description
-      %th Expiration message
-      %th Actions
+      -#%th Expiration message
+      %th{width: "200px"} Actions
 
   %tbody
     - @subscriptions.each do |subscription|
       %tr
         %td= subscription.name
         %td= subscription.description
-        %td= subscription.expiration_message
+        -#%td= subscription.expiration_message
         %td
+          = link_to 'Products', subscription_products_path(subscription), :class => 'btn btn-mini btn-success'
           = link_to 'Show', subscription, :class => 'btn btn-mini'
           = link_to 'Edit', edit_subscription_path(subscription), :class => 'btn btn-mini'
           = link_to 'Destroy', subscription, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
 = link_to 'New Subscription', new_subscription_path, :class => 'btn btn-primary'
+
+:javascript
+  jQuery(function($) {
+    $("#subscriptionsTable").tablesorter({
+      sortList: [[0,0]],
+      headers: {
+        1: {
+          sorter: false
+        },
+        2: {
+          sorter: false
+        }
+      }
+    });
+  });

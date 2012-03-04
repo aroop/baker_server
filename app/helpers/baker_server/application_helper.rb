@@ -1,6 +1,10 @@
 module BakerServer
   module ApplicationHelper
 
+    def render_image(image_object, width=100, height=100)
+      image_object.present? ? image_tag(image_object.thumb("#{width}x#{height}").url) : ""
+    end
+
     def bootstrap_flash_class(type)
       case type
         when :alert

@@ -1,0 +1,47 @@
+.well
+  %h1 Listing Non Consumables
+
+%table#productsTable.table.table-bordered.table-striped.tablesorter
+  %thead
+    %tr
+      %th Product
+      %th Name
+      %th{width: "110px"} Icon
+      %th{width: "110px"} Preview
+      %th Description
+      %th Paid
+      %th{width: "200px"}  Actions
+
+  %tbody
+    - collection.each do |product|
+      %tr
+        %td= product.product_id
+        %td= product.name
+        %td= render_image(product.icon)
+        %td= render_image(product.preview)
+        %td= product.description
+        %td= product.paid
+        %td
+          = link_to 'Show', product, :class => 'btn btn-mini'
+          = link_to 'Edit', edit_non_consumable_path(product), :class => 'btn btn-mini'
+          = link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+= link_to 'New Product', new_non_consumable_path, :class => 'btn btn-primary'
+
+:javascript
+  jQuery(function($) {
+    $("#productsTable").tablesorter({
+      sortList: [[0,1]],
+      headers: {
+        2: {
+          sorter: false
+        },
+        3: {
+          sorter: false
+        },
+        6: {
+          sorter: false
+        }
+      }
+    });
+  });

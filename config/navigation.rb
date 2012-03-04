@@ -2,9 +2,9 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = 'active'
   navigation.items do |primary|
     primary.dom_class = 'nav'
+    primary.item :non_consumables, 'Non Consumables', non_consumables_path, :highlights_on => /non_consumables/
+    primary.item :subscriptions, 'Subscriptions', subscriptions_path, :highlights_on => /subscriptions/
     primary.item :new_stand, 'New Stand', issues_path, :highlights_on => /issues/
-    primary.item :products, 'Products', products_path, :highlights_on => /products/
-    primary.item :subscriptions, 'Subscription', subscriptions_path, :highlights_on => /subscriptions/
   end
 end
 # -*- coding: utf-8 -*-

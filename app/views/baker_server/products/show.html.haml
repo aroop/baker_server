@@ -2,27 +2,27 @@
 
 %p
   %b Product:
-  = @product.product_id
+  = resource.product_id
 %p
   %b Content uid:
-  = @product.content_uid
+  = resource.content_uid
 %p
   %b Name:
-  = @product.name
+  = resource.name
 %p
   %b Icon uid:
-  = @product.icon_uid
+  = resource.icon_uid
 %p
   %b Preview uid:
-  = @product.preview_uid
+  = resource.preview_uid
 %p
   %b Description:
-  = @product.description
+  = resource.description
 %p
   %b Paid:
-  = @product.paid
+  = resource.paid
 
 .form-actions
-  = link_to 'Edit', edit_product_path(@product), :class => 'btn'
+  = link_to 'Edit', edit_polymorphic_path([parent, resource]), :class => 'btn'
 
-  = link_to 'Back', products_path, :class => 'btn'
+  -#= link_to 'Back', collection_path(resource_class.new), :class => 'btn'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304055159) do
+ActiveRecord::Schema.define(:version => 20120304020934) do
 
   create_table "baker_server_issues", :force => true do |t|
     t.date     "published_date"
@@ -19,10 +19,8 @@ ActiveRecord::Schema.define(:version => 20120304055159) do
     t.string   "issue_id"
     t.text     "summary"
     t.string   "cover_art_uid"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
-    t.boolean  "paid",           :default => true
-    t.string   "content_uid"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "baker_server_products", :force => true do |t|
@@ -31,10 +29,19 @@ ActiveRecord::Schema.define(:version => 20120304055159) do
     t.string   "name"
     t.string   "icon_uid"
     t.string   "preview_uid"
+    t.string   "type"
     t.text     "description"
     t.boolean  "paid"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "subscription_id"
+    t.integer  "subscription_duration_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  create_table "baker_server_subscription_durations", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "baker_server_subscriptions", :force => true do |t|
