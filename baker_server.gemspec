@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'paper_trail', '~> 2'
   s.add_dependency 'inherited_resources', '~> 1.3.0'
   s.add_dependency 'bootstrap-sass', '~> 2.0.0'
+  s.add_dependency 'json_builder', '~> 3.1.0'
 
 
   #Gems used for testing

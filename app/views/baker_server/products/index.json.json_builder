@@ -1,0 +1,12 @@
+array @products do |product|
+  product_id product.product_id
+  name product.name
+  description product.description
+  paid product.paid
+  type product.type.demodulize
+  created_at product.created_at
+  updated_at product.updated_at
+  internal_id product.id
+  icon "#{request.host_with_port}#{product.icon.url}"
+  preview "#{request.host_with_port}#{product.preview.url}"
+end
