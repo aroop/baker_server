@@ -1,5 +1,7 @@
 BakerServer::Engine.routes.draw do
 
+  resources :products, only: [:index]
+
   resources :subscriptions do
     resources :products
     resources :non_renewing_subscriptions

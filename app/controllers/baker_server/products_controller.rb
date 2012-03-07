@@ -4,6 +4,7 @@ module BakerServer
     inherit_resources
     actions :all
     respond_to :html
+    respond_to :json, :only => :index
     belongs_to :subscription, parent_class: Subscription, optional: true
 
     def create

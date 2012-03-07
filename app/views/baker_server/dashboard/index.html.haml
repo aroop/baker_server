@@ -1,2 +1,6 @@
-%h1 Dashboard#index
-%p Find me in app/views/baker_server/dashboard/index.html.haml
+.well
+  %h1 Dashboard
+
+.alert.alert-info
+  %i.icon-info-sign
+  Products URL: #{link_to products_url(format: 'json'), products_url(format: 'json')}
