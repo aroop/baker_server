@@ -23,7 +23,7 @@
           = link_to 'Destroy', polymorphic_path([parent, product]), :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
 .btn-group
-  %a.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown"}
+  %a.btn.btn-primary.dropdown-toggle{data: {toggle: "dropdown"}, href: "#"}
     Create Product
     %span.caret
   %ul.dropdown-menu
