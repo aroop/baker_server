@@ -7,6 +7,6 @@ array @products do |product|
   created_at product.created_at
   updated_at product.updated_at
   internal_id product.id
-  icon "#{request.host_with_port}#{product.icon.url}"
-  preview "#{request.host_with_port}#{product.preview.url}"
+  icon "http://#{request.host_with_port}#{product.icon.thumb("75x75").url}"
+  preview "http://#{request.host_with_port}#{product.preview.thumb("150x150").url}"
 end
