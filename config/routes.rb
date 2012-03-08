@@ -1,6 +1,13 @@
 BakerServer::Engine.routes.draw do
 
-  resources :products, only: [:index]
+  resources :products, only: [:index] do
+    collection do
+      post "verify"
+    end
+    member do
+      get "download"
+    end
+  end
 
   resources :subscriptions do
     resources :products
@@ -11,10 +18,6 @@ BakerServer::Engine.routes.draw do
 
   resources :non_consumables
 
-  resources :issues, except: :show do
-    member do
-      get "download"
-    end
-  end
+  resources :issues, except: :show
   root :to => 'dashboard#index'
 end
