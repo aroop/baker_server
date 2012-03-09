@@ -1,4 +1,4 @@
-array @products do |product|
+array collection do |product|
   product_id product.product_id
   name product.name
   description product.description

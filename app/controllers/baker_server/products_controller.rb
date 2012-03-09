@@ -9,6 +9,9 @@ module BakerServer
     respond_to :json, :only => [:index, :verify, :download]
     belongs_to :subscription, parent_class: Subscription, optional: true
 
+    has_scope :subscriptions, :type => :boolean
+    has_scope :products, :type => :boolean
+
     def create
       create! { subscription_products_path(parent) }
     end

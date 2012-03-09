@@ -2,6 +2,7 @@ require 'simple-navigation'
 require 'rack/cache'
 require 'friendly_id'
 require 'paper_trail'
+require 'has_scope'
 
 module BakerServer
   class Engine < ::Rails::Engine

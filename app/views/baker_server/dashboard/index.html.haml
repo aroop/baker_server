@@ -3,4 +3,8 @@
 
 .alert.alert-info
   %i.icon-info-sign
-  Products URL: #{link_to products_url(format: 'json'), products_url(format: 'json')}
+  All Products: #{link_to products_url(products: true, format: 'json'), products_url(products: true, format: 'json')}
+
+.alert.alert-info
+  %i.icon-info-sign
+  All Subscriptions: #{link_to products_url(subscriptions: true, format: 'json'), products_url(subscriptions: true, format: 'json')}
