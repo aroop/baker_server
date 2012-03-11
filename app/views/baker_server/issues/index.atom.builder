@@ -17,7 +17,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom", 'xmlns:news' => 'http://itune
       end
       xml.news :cover_art_icons do |art|
         if issue.cover_art.present?
-          art.news :cover_art_icon, {"size" => "SOURCE", "src" => "#{request.host_with_port}#{issue.cover_art.url}"}
+          art.news :cover_art_icon, {"size" => "SOURCE", "src" => qualified_url(issue.cover_art.url)}
         end
       end
     end

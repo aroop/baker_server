@@ -1,1 +1,1 @@
-json.content_url @download_url
+json.content_url qualified_url(@download_url)

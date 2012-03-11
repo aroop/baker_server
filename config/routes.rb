@@ -3,8 +3,6 @@ BakerServer::Engine.routes.draw do
   resources :products, only: [:index] do
     collection do
       post "verify"
-    end
-    member do
       get "download"
     end
   end

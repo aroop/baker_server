@@ -37,8 +37,8 @@ module BakerServer
     end
 
     def download
-      @product = BakerServer::Product.find_by_product_id params[:id]
-      @download_url = "#{request.host_with_port}#{@product.content.url}"
+      @product = BakerServer::Product.find_by_product_id params[:product_identifier]
+      @download_url = @product.content.url
     end
 
   end
