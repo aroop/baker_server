@@ -1,5 +1,9 @@
 BakerServer::Engine.routes.draw do
 
+  resources :devise_tokens
+
+  resources :users
+
   resources :products, only: [:index] do
     collection do
       post "verify"

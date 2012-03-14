@@ -1,4 +1,13 @@
 FactoryGirl.define do
+
+  factory :user, :class => BakerServer::User do
+    email_address "ajay@example.com"
+  end
+
+  factory :devise_token, :class => BakerServer::DeviseToken do
+    token "sometoken"
+  end
+
   factory :issue, :class => BakerServer::Issue do
     issue_id "Issue 1"
     published_date Date.today

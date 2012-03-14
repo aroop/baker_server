@@ -1,0 +1,21 @@
+.well
+  %h1 Listing Devise tokens
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Token
+      %th User
+      %th Actions
+
+  %tbody
+    - @devise_tokens.each do |devise_token|
+      %tr
+        %td= devise_token.token
+        %td= devise_token.user.try(:email_address)
+        %td
+          = link_to 'Show', devise_token, :class => 'btn btn-mini'
+          = link_to 'Edit', edit_devise_token_path(devise_token), :class => 'btn btn-mini'
+          = link_to 'Destroy', devise_token, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+= link_to 'New Devise token', new_devise_token_path, :class => 'btn btn-primary'

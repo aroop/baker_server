@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304020934) do
+ActiveRecord::Schema.define(:version => 20120312132149) do
+
+  create_table "baker_server_devise_tokens", :force => true do |t|
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "baker_server_issues", :force => true do |t|
     t.date     "published_date"
@@ -50,6 +57,13 @@ ActiveRecord::Schema.define(:version => 20120304020934) do
     t.boolean  "expiration_message"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "baker_server_users", :force => true do |t|
+    t.string   "email_address"
+    t.string   "password"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

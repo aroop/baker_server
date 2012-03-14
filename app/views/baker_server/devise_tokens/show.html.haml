@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Token:
+  = @devise_token.token
+
+%p
+  %b User:
+  = @devise_token.user.email_address
+
+.form-actions
+  = link_to 'Edit', edit_devise_token_path(@devise_token), :class => 'btn'
+
+  = link_to 'Back', devise_tokens_path, :class => 'btn'

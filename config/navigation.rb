@@ -5,6 +5,8 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :non_consumables, 'Non Consumables', non_consumables_path, :highlights_on => /non_consumables/
     primary.item :subscriptions, 'Subscriptions', subscriptions_path, :highlights_on => /subscriptions/
     primary.item :new_stand, 'New Stand', issues_path, :highlights_on => /issues/
+    primary.item :users, 'Users', users_path, :highlights_on => /users/
+    primary.item :devise_tokens, 'Devise Tokens', devise_tokens_path, :highlights_on => /devise_tokens/
   end
 end
 # -*- coding: utf-8 -*-

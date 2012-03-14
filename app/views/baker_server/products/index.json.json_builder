@@ -1,6 +1,7 @@
 array collection do |product|
   product_id product.product_id
   name product.name
+  duration product.subscription_duration.name if product.kind_of?(BakerServer::AutoRenewalSubscription)
   description product.description
   paid product.paid
   type product.type.demodulize

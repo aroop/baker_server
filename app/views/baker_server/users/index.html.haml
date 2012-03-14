@@ -1,0 +1,19 @@
+.well
+  %h1 Listing users
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th Email address
+      %th Actions
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.email_address
+        %td
+          = link_to 'Show', user, :class => 'btn btn-mini'
+          = link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini'
+          = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+
+= link_to 'New User', new_user_path, :class => 'btn btn-primary'

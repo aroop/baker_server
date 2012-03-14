@@ -25,20 +25,31 @@ module BakerServer
     end
 
     def verify
-      file_data = params[:receipt]
-      if file_data.respond_to?(:read)
-        file_contents = file_data.read
-      elsif file_data.respond_to?(:path)
-        file_contents = File.read(file_data.path)
+      subscription  = !BakerServer::NonConsumable.exists?(:name => params[:productIdentifier])
+      file_contents = read_receipt(params[:receipt])
+      user          = BakerServer::User.find_by_id_and_password(params[:user_id], params[:user_password])
+      if subscription
+        @server_response = ::BakerServer::AppStoreReceiptValidation.validate_subscription(file_contents, true)
+        puts @server_response
       else
-        logger.error "Bad file_data: #{file_data.class.name}: #{file_data.inspect}"
+        @server_response = ::BakerServer::AppStoreReceiptValidation.validate_non_consumable(file_contents, true)
       end
-      @server_response = BakerServer::AppStoreReceiptValidation.validate(file_contents, true)
     end
 
     def download
-      @product = BakerServer::Product.find_by_product_id params[:product_identifier]
+      @product      = BakerServer::Product.find_by_product_id params[:product_identifier]
       @download_url = @product.content.url
+    end
+
+    private
+    def read_receipt(file_data)
+      if file_data.respond_to?(:read)
+        return file_data.read
+      elsif file_data.respond_to?(:path)
+        return File.read(file_data.path)
+      else
+        logger.error "Bad file_data: #{file_data.class.name}: #{file_data.inspect}"
+      end
     end
 
   end
