@@ -30,7 +30,13 @@ module BakerServer
       user          = BakerServer::User.find_by_id_and_password(params[:user_id], params[:user_password])
       if subscription
         @server_response = ::BakerServer::AppStoreReceiptValidation.validate_subscription(file_contents, true)
-        puts @server_response
+        json = ActiveSupport::JSON.decode(@server_response)
+        puts ['original_purchase_date_pst', 'original_transaction_id', 'expires_date', 'transaction_id', 'quantity',
+         'product_id', 'web_order_line_item_id', 'item_id', 'expires_date_formatted', 'purchase_date', 'purchase_date_ms',
+         'expires_date_formatted_pst', 'purchase_date_pst', 'original_purchase_date', 'original_purchase_date_ms'].collect{|e|json['receipt'][e]}.join("\t")
+        puts ['original_purchase_date_pst', 'original_transaction_id', 'expires_date', 'transaction_id', 'quantity',
+        'product_id', 'web_order_line_item_id', 'item_id', 'expires_date_formatted', 'purchase_date', 'purchase_date_ms',
+        'expires_date_formatted_pst', 'purchase_date_pst', 'original_purchase_date', 'original_purchase_date_ms'].collect{|e|json['latest_receipt_info'][e]}.join("\t")
       else
         @server_response = ::BakerServer::AppStoreReceiptValidation.validate_non_consumable(file_contents, true)
       end

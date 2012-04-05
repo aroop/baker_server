@@ -40,3 +40,11 @@ end
 #21006 This receipt is valid but the subscription has expired.
 #21007 This receipt is a sandbox receipt, but it was sent to the production service for verification.
 #21008 This receipt is a production receipt, but it was sent to the sandbox service for verification.
+
+#Test time
+#1 week = 3 minutes
+#1 month = 5 minutes
+#2 months = 10 minutes
+#3 months = 15 minutes
+#6 months = 30 minutes
+#1 year = 1 hour
